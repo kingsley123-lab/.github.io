@@ -67,7 +67,7 @@
     <article id="post-网站挂博彩手法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/29/%E7%BD%91%E7%AB%99%E6%8C%82%E5%8D%9A%E5%BD%A9%E6%89%8B%E6%B3%95/" class="article-date">
-  <time datetime="2020-05-29T08:34:22.000Z" itemprop="datePublished">2020-05-29</time>
+  <time datetime="2020-05-29T13:19:40.000Z" itemprop="datePublished">2020-05-29</time>
 </a>
     
   </div>
@@ -86,10 +86,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>yxcms漏洞复现<br>影响范围<br>Yxcms 1.4.7<br>漏洞复现</p>
-<ol>
-<li>前台xss<br>打开留言板，输入payload</li>
-</ol>
+        <h1 id="yxcms漏洞复现"><a href="#yxcms漏洞复现" class="headerlink" title="yxcms漏洞复现"></a>yxcms漏洞复现</h1><h2 id="影响范围"><a href="#影响范围" class="headerlink" title="影响范围"></a><u>影响范围</u></h2><p>Yxcms 1.4.7</p>
+<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a><u>漏洞复现</u></h2><p><strong>前台xss</strong><br>打开留言板，输入payload<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_d61ad13ab5009027d60fb25da7b38661.png" alt><br>然后登陆后台，查看审核留言，点击编辑（后台地址在网址后面加上r=admin进入。后台默认的用户名:admin;密码:123456）<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_d5f85e4b998662fa030dbe748ee22cc1.png" alt><br><strong>任意文件写入</strong><br>打开地址<a href="http://xxx.com/index.php?r=admin/set/tpadd&amp;Mname=default新增模板文件，写shell.php文件名，写入一句话木马" target="_blank" rel="noopener">http://xxx.com/index.php?r=admin/set/tpadd&amp;Mname=default新增模板文件，写shell.php文件名，写入一句话木马</a><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_1004537e6bf9f02d09bdd95a7cf5dcff.png" alt><br>然后会在data/protected/apps/default/view/default/shell.php下面生成我们写入的文件<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_70418d2a37e32faea87b15d967a6f5ab.png" alt><br>使用蚁剑连接<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_3b88edf578707de727bbb12164d973e0.png" alt></p>
+<h2 id="网站挂博彩的手法"><a href="#网站挂博彩的手法" class="headerlink" title="网站挂博彩的手法"></a><u>网站挂博彩的手法</u></h2><p><strong>直接跳转</strong><br>这种算是桥页，content=0，是页面停留时间，点击网页瞬间跳转到博彩网站，但是太容易被发现了。</p>
+<p><strong>明链</strong><br>类型友情链接，没有隐藏，网页正文能看到。如下图，将博彩页面链接插到验证码后面。第一张图是正常网页的样子，第二张图是被插了恶意链接的样子。</p>
+<p><strong>暗链</strong><br>网页正文是看不到的，但是如果是查看源代码，通过CTRL+F 搜索display:none、hidden等关键词的方式可以查看是否有暗链。目的是让搜索引擎收录，帮助推广博彩网站。</p>
+<p><strong>js脚本</strong><br>通过JS脚本来控制，这种需要认真读脚本代码。如下图，通过js脚本判断客户端，电脑访问网站显示正常，手机访问就跳转博彩。</p>
+<p><strong>转码</strong><br>在网页源码中不出现博彩关键词之类的汉字，而是通过加密的方式混在源码中，这种方式也相对隐蔽一些。如下图，将关键字编码。</p>
+<p><strong>寄生虫程序</strong><br>把寄生虫程序植入到目标站点后，网站会自动生成大量的html页面或者url，甚至在url后面，输入不存在的html页面，也会看到博彩信息。但是在服务器里并不会找到相关繁衍出来的html页，但是可以找到这个木马，或者txt文件，它会在txt文件里写入关键词和url链接。</p>
 
       
     </div>
