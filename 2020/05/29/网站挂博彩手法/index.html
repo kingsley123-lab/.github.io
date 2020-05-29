@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/upload_4c016d0e0acb246550d1becbd657c80b.png">
 <meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/upload_db6cccd2105c21e985175dc80b4fef99.png">
 <meta property="article:published_time" content="2020-05-29T13:19:40.000Z">
-<meta property="article:modified_time" content="2020-05-29T14:13:08.708Z">
+<meta property="article:modified_time" content="2020-05-29T14:17:52.918Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/upload_d61ad13ab5009027d60fb25da7b38661.png">
@@ -109,23 +109,34 @@
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_70418d2a37e32faea87b15d967a6f5ab.png" alt><br>使用蚁剑连接</p>
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_3b88edf578707de727bbb12164d973e0.png" alt></p>
 <h2 id="网站挂博彩的手法"><a href="#网站挂博彩的手法" class="headerlink" title="网站挂博彩的手法"></a><u>网站挂博彩的手法</u></h2><ul>
-<li><strong>直接跳转</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv&#x3D;&quot;refresh&quot; content&#x3D;&quot;0;url&#x3D;http:&#x2F;&#x2F;www.博彩.com&#x2F;&quot;&gt;</span><br></pre></td></tr></table></figure>
-这种算是桥页，content=0，是页面停留时间，点击网页瞬间跳转到博彩网站，但是太容易被发现了。</li>
+<li><p><strong>直接跳转</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv&#x3D;&quot;refresh&quot; content&#x3D;&quot;0;url&#x3D;http:&#x2F;&#x2F;www.博彩.com&#x2F;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>这种算是桥页，content=0，是页面停留时间，点击网页瞬间跳转到博彩网站，但是太容易被发现了。</p>
+</li>
+<li><p><strong>明链</strong><br>类型友情链接，没有隐藏，网页正文能看到。如下图，将博彩页面链接插到验证码后面。第一张图是正常网页的样子，第二张图是被插了恶意链接的样子。</p>
+</li>
 </ul>
-<p><strong>明链</strong><br>类型友情链接，没有隐藏，网页正文能看到。如下图，将博彩页面链接插到验证码后面。第一张图是正常网页的样子，第二张图是被插了恶意链接的样子。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.博彩.com&#x2F;&quot; style&#x3D;&quot;font-size:1px;&quot;&gt;博彩&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_5601d7449889a8b83ae790246cabc080.png" alt><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_6130564f444d563d32f7b591cc11a6f0.png" alt></p>
-<p><strong>暗链</strong><br>网页正文是看不到的，但是如果是查看源代码，通过CTRL+F 搜索display:none、hidden等关键词的方式可以查看是否有暗链。目的是让搜索引擎收录，帮助推广博彩网站。</p>
+<ul>
+<li><strong>暗链</strong><br>网页正文是看不到的，但是如果是查看源代码，通过CTRL+F 搜索display:none、hidden等关键词的方式可以查看是否有暗链。目的是让搜索引擎收录，帮助推广博彩网站。</li>
+</ul>
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_fbb49a0f5178e83d3413a89862ca0992.png" alt><br>页面不显示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;display:none&quot;&gt;www.博彩.com&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 <p>隐藏区域内的内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;visibility:hidden;&quot;&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.博彩.com&#x2F;&quot;&gt;关键字 &lt;&#x2F;a&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 
-<p><strong>js脚本</strong><br>通过JS脚本来控制，这种需要认真读脚本代码。如下图，通过js脚本判断客户端，电脑访问网站显示正常，手机访问就跳转博彩。</p>
+<ul>
+<li><strong>js脚本</strong><br>通过JS脚本来控制，这种需要认真读脚本代码。如下图，通过js脚本判断客户端，电脑访问网站显示正常，手机访问就跳转博彩。</li>
+</ul>
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_4c016d0e0acb246550d1becbd657c80b.png" alt></p>
-<p><strong>转码</strong><br>在网页源码中不出现博彩关键词之类的汉字，而是通过加密的方式混在源码中，这种方式也相对隐蔽一些。如下图，将关键字编码。</p>
+<ul>
+<li><strong>转码</strong><br>在网页源码中不出现博彩关键词之类的汉字，而是通过加密的方式混在源码中，这种方式也相对隐蔽一些。如下图，将关键字编码。</li>
+</ul>
 <p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/upload_db6cccd2105c21e985175dc80b4fef99.png" alt></p>
-<p><strong>寄生虫程序</strong><br>把寄生虫程序植入到目标站点后，网站会自动生成大量的html页面或者url，甚至在url后面，输入不存在的html页面，也会看到博彩信息。但是在服务器里并不会找到相关繁衍出来的html页，但是可以找到这个木马，或者txt文件，它会在txt文件里写入关键词和url链接。</p>
+<ul>
+<li><strong>寄生虫程序</strong><br>把寄生虫程序植入到目标站点后，网站会自动生成大量的html页面或者url，甚至在url后面，输入不存在的html页面，也会看到博彩信息。但是在服务器里并不会找到相关繁衍出来的html页，但是可以找到这个木马，或者txt文件，它会在txt文件里写入关键词和url链接。</li>
+</ul>
 
       
     </div>
